@@ -1,13 +1,20 @@
 #!/bin/bash
 # Program to output a system information page
 
-title="system information report"
+TITLE="System Information Report for $HOSTNAME"
 
-echo "<html>
+CURRENT_TIME="$(date +"%x %r %Z")"
+TIMESTAMP="Generated $CURRENT_TIME, by $USER"
+
+
+cat << _EOF_
+<html>
      <head>
-          <title>$title</title>
+          <title>$TITLE</title>
      </head>
      <body>
-          <h1>$title<h1>
+          <h1>$TITLE<h1>
+          <p>$TIMESTAMP</p>
      </body>
 </html>"
+_EOF_
